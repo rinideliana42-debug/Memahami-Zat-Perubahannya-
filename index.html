@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Ajar Interaktif: Zat dan Perubahannya - SMK Negeri 1 Karang Baru</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .rpl-gradient {
+            background: linear-gradient(135deg, #0284c7 0%, #3b82f6 100%);
+        }
+        .dkv-gradient {
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 3px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            background:
+                radial-gradient(900px 500px at 8% -5%, rgba(34,211,238,.14), transparent 60%),
+                radial-gradient(800px 500px at 100% 10%, rgba(236,72,153,.12), transparent 60%),
+                radial-gradient(700px 500px at 50% 110%, rgba(99,102,241,.14), transparent 60%),
+                #0b1120;
+            background-attachment: fixed;
+        }
+        body::before {
+            content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image: linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
+        }
+        header, main, footer { position: relative; z-index: 1; }
+        h1, h2, h3 { font-family: 'Sora', 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { transition: border-color .25s, transform .25s, box-shadow .25s; box-shadow: 0 10px 30px -18px rgba(0,0,0,.6); }
+        .glass-card:hover { border-color: rgba(34,211,238,.35); transform: translateY(-3px); box-shadow: 0 18px 40px -18px rgba(34,211,238,.25); }
+        .tab-btn { transition: color .2s, background .2s; }
+        .tab-content:not(.hidden) { animation: tabIn .45s ease both; }
+        @keyframes tabIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        .hero-in > * { animation: heroIn .7s cubic-bezier(.2,.7,.2,1) both; }
+        .hero-in > *:nth-child(2) { animation-delay: .08s; }
+        .hero-in > *:nth-child(3) { animation-delay: .16s; }
+        .hero-in > *:nth-child(4) { animation-delay: .24s; }
+        .hero-in > *:nth-child(5) { animation-delay: .32s; }
+        @keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+        .float-atom { animation: floaty 7s ease-in-out infinite; }
+        @keyframes floaty { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-14px) rotate(8deg); } }
+        .identity-card { background: linear-gradient(135deg, rgba(15,23,42,.85), rgba(30,41,59,.6)); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(10px); }
+        a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col custom-scrollbar">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800 bg-slate-900/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-500 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-atom text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg text-white leading-tight">IPAS Interaktif <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">SMK Kelas X</span></h1>
+                    <p class="text-xs text-slate-400">SMK Negeri 1 Karang Baru Aceh Tamiang · Projek IPAS</p>
+                </div>
+            </div>
+
+            <!-- Context Filter Toggle -->
+            <div class="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700">
+                <button onclick="setFilter('all')" id="btn-filter-all" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 bg-cyan-500 text-white shadow">
+                    <i class="fa-solid fa-layer-group mr-1"></i> Semua
+                </button>
+                <button onclick="setFilter('rpl')" id="btn-filter-rpl" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-code mr-1"></i> RPL Focus
+                </button>
+                <button onclick="setFilter('dkv')" id="btn-filter-dkv" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-palette mr-1"></i> DKV Focus
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- Hero Banner -->
+        <section class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 shadow-2xl">
+            <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-10 -top-10 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="absolute right-8 top-8 hidden lg:flex w-40 h-40 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/5 float-atom pointer-events-none">
+                <i class="fa-solid fa-atom text-7xl text-cyan-300/70"></i>
+            </div>
+            <div class="relative z-10 max-w-3xl space-y-4 hero-in">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-cyan-400 text-xs font-medium">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Pembelajaran Kontekstual Kejuruan
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                    Memahami <span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-pink-400 bg-clip-text text-transparent">Zat & Perubahannya</span> Dalam Dunia Teknologi dan Desain
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                    Bagaimana proses thermal paste mendinginkan CPU? Mengapa tinta printer bisa mengering atau warna cetakan memudar? Pelajari konsep sains fisika & kimia zat melalui lensa <strong class="text-cyan-300">Software Engineering (RPL)</strong> dan <strong class="text-pink-300">Desain Komunikasi Visual (DKV)</strong>.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#simulasi" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition shadow-lg shadow-cyan-500/25 flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Mulai Simulasi Interaktif
+                    </a>
+                    <a href="#mini-game" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i> Tantangan Mini-Game
+                    </a>
+                </div>
+                <!-- Identitas Sekolah & Guru -->
+                <div class="identity-card rounded-2xl p-4 mt-4 flex flex-col sm:flex-row sm:items-center gap-4 max-w-2xl">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 flex items-center justify-center text-xl shadow-lg shadow-amber-500/20">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] text-slate-400">Satuan Pendidikan</p>
+                            <p class="text-sm font-bold text-white">SMK Negeri 1 Karang Baru</p>
+                            <p class="text-xs text-slate-300">Aceh Tamiang</p>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block w-px self-stretch bg-slate-700"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-500 text-white flex items-center justify-center text-xl shadow-lg shadow-cyan-500/20">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] text-slate-400">Guru Mata Pelajaran Projek IPAS</p>
+                            <p class="text-sm font-bold text-white">Rini Deliana, S.T., M.Pd</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <div class="flex border-b border-slate-800 space-x-2 overflow-x-auto pb-1">
+            <button onclick="switchTab('tab-wujud')" id="btn-tab-wujud" class="tab-btn active px-4 py-2.5 font-medium text-sm rounded-t-xl border-b-2 border-cyan-400 text-cyan-400 bg-slate-800/50 whitespace-nowrap">
+                <i class="fa-solid fa-cubes mr-2"></i>1. Hakikat & Wujud Zat
+            </button>
+            <button onclick="switchTab('tab-perubahan')" id="btn-tab-perubahan" class="tab-btn px-4 py-2.5 font-medium text-sm rounded-t-xl border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">
+                <i class="fa-solid fa-flask-vial mr-2"></i>2. Perubahan Fisika vs Kimia
+            </button>
+            <button onclick="switchTab('tab-klasifikasi')" id="btn-tab-klasifikasi" class="tab-btn px-4 py-2.5 font-medium text-sm rounded-t-xl border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">
+                <i class="fa-solid fa-sitemap mr-2"></i>3. Klasifikasi Zat (Hardware & Media)
+            </button>
+            <button onclick="switchTab('tab-simulasi')" id="btn-tab-simulasi" class="tab-btn px-4 py-2.5 font-medium text-sm rounded-t-xl border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">
+                <i class="fa-solid fa-sliders mr-2"></i>4. Lab Simulasi Partikel
+            </button>
+            <button onclick="switchTab('tab-evaluasi')" id="btn-tab-evaluasi" class="tab-btn px-4 py-2.5 font-medium text-sm rounded-t-xl border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">
+                <i class="fa-solid fa-clipboard-check mr-2"></i>5. Kuis & Proyek Mini
+            </button>
+        </div>
+
+        <!-- TAB CONTENT 1: HAKIKAT & WUJUD ZAT -->
+        <div id="tab-wujud" class="tab-content space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Concept Card 1: Apa itu Zat? -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-weight-hanging"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Materi & Masa</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        <strong>Zat (Materi)</strong> adalah segala sesuatu yang memiliki massa dan menempati ruang (memiliki volume).
+                    </p>
+                    <div class="p-3 bg-slate-900/60 rounded-xl text-xs text-slate-400 border border-slate-800">
+                        <span class="text-cyan-400 font-semibold">Rumus Massa Jenis:</span> $\rho = \frac{m}{V}$ <br>
+                        Dimana $\rho$ = massa jenis ($\text{kg/m}^3$), $m$ = massa ($\text{kg}$), dan $V$ = volume ($\text{m}^3$).
+                    </div>
+                </div>
+
+                <!-- Concept Card 2: Sifat Fisika -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Sifat Fisika Zat</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Ciri khas zat yang dapat diamati tanpa mengubah identitas kimia materi tersebut.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Titik lebur & titik didih</li>
+                        <li>Daya kompresi & viskositas</li>
+                        <li>Konduktivitas termal/listrik</li>
+                        <li>Warna, bau, kekerasan</li>
+                    </ul>
+                </div>
+
+                <!-- Concept Card 3: Sifat Kimia -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Sifat Kimia Zat</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Kemampuan zat untuk beraksi dan mengalami perubahan membentuk zat baru dengan sifat yang berbeda.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Kereaktifan terhadap air/udara</li>
+                        <li>Keterbakaran (*flammability*)</li>
+                        <li>Tingkat keasaman (pH)</li>
+                        <li>Daya korosif (mudah berkarat)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Konteks RPL & DKV Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- RPL Focus -->
+                <div class="card-rpl glass-card p-6 rounded-2xl border-l-4 border-l-cyan-500 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 uppercase tracking-wider">
+                            <i class="fa-solid fa-laptop-code mr-1"></i> Aplikasi RPL / Hardware
+                        </span>
+                        <i class="fa-solid fa-microchip text-2xl text-cyan-400/40"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Sifat Thermal Paste & Pendingin Processor</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Dalam perakitan komputer untuk *software development* atau *server*, **thermal paste** memanfaatkan sifat fisika konduktivitas termal zat tinggi untuk mengisi celah mikroskopis antara CPU dan *heatsink*. 
+                    </p>
+                    <div class="bg-slate-900/80 p-4 rounded-xl text-xs space-y-2 border border-slate-800">
+                        <p class="font-mono text-cyan-300">// Abstraksi State Wujud Air dalam Logic Coding</p>
+                        <pre class="font-mono text-slate-300">
+if (temperature < 0) {
+    waterState = "PADAT (ES)";
+} else if (temperature >= 0 && temperature < 100) {
+    waterState = "CAIR (AIR)";
+} else {
+    waterState = "GAS (UAP AIR)";
+}</pre>
+                    </div>
+                </div>
+
+                <!-- DKV Focus -->
+                <div class="card-dkv glass-card p-6 rounded-2xl border-l-4 border-l-pink-500 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-pink-500/20 text-pink-400 uppercase tracking-wider">
+                            <i class="fa-solid fa-brush mr-1"></i> Aplikasi DKV / Media Cetak
+                        </span>
+                        <i class="fa-solid fa-palette text-2xl text-pink-400/40"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Pigmen Tinta, Viskositas, & Media Kertas</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Seorang desainer grafis harus memahami **viskositas** (kekentalan) dan daya serap tinta cetak offset/digital. Tinta cetak berbasis minyak (*oil-based*) memiliki daya kering kimiaWI beda dengan tinta berbasis air (*water-based*).
+                    </p>
+                    <div class="bg-slate-900/80 p-4 rounded-xl text-xs space-y-2 border border-slate-800">
+                        <p class="font-semibold text-pink-300"><i class="fa-solid fa-circle-info mr-1"></i> Perbandingan Zat RGB vs CMYK:</p>
+                        <p class="text-slate-300">
+                            • <strong>RGB (Red, Green, Blue):</strong> Cahaya (Gelombang Energi), bukan zat/materi.<br>
+                            • <strong>CMYK (Cyan, Magenta, Yellow, Key/Black):</strong> Pigmen Tinta Kimia (Materi fisik dengan massa dan volume).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 2: PERUBAHAN FISIKA VS KIMIA -->
+        <div id="tab-perubahan" class="tab-content hidden space-y-6">
+            <!-- Comparison Table / Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Perubahan Fisika -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-sky-400 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-sky-400/20 text-sky-400 flex items-center justify-center text-lg font-bold">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Perubahan Fisika</h3>
+                            <p class="text-xs text-slate-400">Tidak Menghasilkan Zat Baru</p>
+                        </div>
+                    </div>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span>Hanya bentuk, ukuran, atau wujud yang berubah.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span>Bersifat reversibel (dapat kembali ke bentuk semula secara fisika).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-sky-400 mt-1"></i>
+                            <span>Sifat molekul zat tetap sama.</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-2 border-t border-slate-800 space-y-2">
+                        <p class="text-xs font-bold text-sky-400 uppercase tracking-wider">Contoh dalam Kejuruan:</p>
+                        <div class="card-rpl bg-slate-900/60 p-3 rounded-lg text-xs">
+                            <strong class="text-cyan-300">[RPL]</strong> Solder timah ($Sn$-$Pb$) meleleh saat pematrian motherboard ($217^\circ\text{C}$), kemudian membeku kembali tanpa mengubah sifat kimia timah.
+                        </div>
+                        <div class="card-dkv bg-slate-900/60 p-3 rounded-lg text-xs">
+                            <strong class="text-pink-300">[DKV]</strong> Memotong kertas kalkir/duplex dengan *cutter ploter* atau pencampuran cat air dengan air ($H_2O$).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perubahan Kimia -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-purple-500 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg font-bold">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Perubahan Kimia</h3>
+                            <p class="text-xs text-slate-400">Menghasilkan Zat Baru (Reaksi Kimia)</p>
+                        </div>
+                    </div>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-purple-400 mt-1"></i>
+                            <span>Terbentuk zat baru dengan sifat kimia yang berbeda.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-purple-400 mt-1"></i>
+                            <span>Umumnya bersifat irreversibel (sulit/tidak bisa kembali).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-purple-400 mt-1"></i>
+                            <span>Disertai indikator: perubahan warna, timbul gas, endapan, atau perubahan suhu.</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-2 border-t border-slate-800 space-y-2">
+                        <p class="text-xs font-bold text-purple-400 uppercase tracking-wider">Contoh dalam Kejuruan:</p>
+                        <div class="card-rpl bg-slate-900/60 p-3 rounded-lg text-xs">
+                            <strong class="text-cyan-300">[RPL]</strong> Oksidasi / Korosi pin emas pada RAM/motherboard akibat kelembaban udara ($4Fe + 3O_2 \rightarrow 2Fe_2O_3$), menyebabkan *error blue screen*.
+                        </div>
+                        <div class="card-dkv bg-slate-900/60 p-3 rounded-lg text-xs">
+                            <strong class="text-pink-300">[DKV]</strong> Proses pengerasan (*curing*) resin cair UV pada *3D Printer* menggunakan sinar UV (Polimerisasi monomer menjadi polimer padat).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segitiga Perubahan Wujud Zat -->
+            <div class="glass-card p-6 rounded-2xl space-y-4 text-center">
+                <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-arrows-spin text-cyan-400 mr-2"></i>Skema Perubahan Wujud Zat (Fisika)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                        <span class="block text-xs font-bold text-cyan-400">Mencair</span>
+                        <span class="text-xs text-slate-400">Padat $\rightarrow$ Cair</span>
+                    </div>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                        <span class="block text-xs font-bold text-cyan-400">Membeku</span>
+                        <span class="text-xs text-slate-400">Cair $\rightarrow$ Padat</span>
+                    </div>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                        <span class="block text-xs font-bold text-cyan-400">Menguap</span>
+                        <span class="text-xs text-slate-400">Cair $\rightarrow$ Gas</span>
+                    </div>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                        <span class="block text-xs font-bold text-cyan-400">Mengembun</span>
+                        <span class="text-xs text-slate-400">Gas $\rightarrow$ Cair</span>
+                    </div>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                        <span class="block text-xs font-bold text-cyan-400">Menyublim</span>
+                        <span class="text-xs text-slate-400">Padat $\rightarrow$ Gas</span>
+                    </div>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                        <span class="block text-xs font-bold text-cyan-400">Mengkristal</span>
+                        <span class="text-xs text-slate-400">Gas $\rightarrow$ Padat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 3: KLASIFIKASI ZAT -->
+        <div id="tab-klasifikasi" class="tab-content hidden space-y-6">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h3 class="text-2xl font-black text-white">Klasifikasi Materi</h3>
+                <p class="text-xs text-slate-400">Pengelompokan zat berdasarkan komposisi kimianya dalam hardware komputer dan material seni DKV.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Unsur -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 text-xs font-bold uppercase">Unsur (Element)</span>
+                    <h4 class="text-lg font-bold text-white">Zat Tunggal Paling Sederhana</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Tidak dapat diuraikan lagi menjadi zat lain dengan reaksi kimia biasa.
+                    </p>
+                    <div class="p-3 bg-slate-900/80 rounded-xl text-xs space-y-1.5 border border-slate-800">
+                        <p><strong class="text-amber-300">Silikon ($Si$):</strong> Semikonduktor utama pada chip CPU/GPU (RPL).</p>
+                        <p><strong class="text-amber-300">Tembaga ($Cu$):</strong> Jalur kabel HDMI & PCB motherboard.</p>
+                        <p><strong class="text-amber-300">Emas ($Au$):</strong> Pelapis konektor port kabel DKV/RPL kelas profesional.</p>
+                    </div>
+                </div>
+
+                <!-- Senyawa -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">Senyawa (Compound)</span>
+                    <h4 class="text-lg font-bold text-white">Gabungan 2+ Unsur Kimia</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Dapat diuraikan secara kimia. Memiliki perbandingan massa yang tetap.
+                    </p>
+                    <div class="p-3 bg-slate-900/80 rounded-xl text-xs space-y-1.5 border border-slate-800">
+                        <p><strong class="text-emerald-300">Air ($H_2O$):</strong> Pelarut cat lukis / zat pembersih komponen elektronika.</p>
+                        <p><strong class="text-emerald-300">Silika / Kaca ($SiO_2$):</strong> Bahan utama layar monitor & penampang kaca Scanner DKV.</p>
+                        <p><strong class="text-emerald-300">Alkohol ($C_2H_5OH$):</strong> Cairan pembersih thermal paste tua.</p>
+                    </div>
+                </div>
+
+                <!-- Campuran -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <span class="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 text-xs font-bold uppercase">Campuran (Mixture)</span>
+                    <h4 class="text-lg font-bold text-white">Gabungan Fisika Tanpa Reaksi</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Dapat dipisahkan secara fisika (Filtrasi, Evaporasi, Distilasi).
+                    </p>
+                    <div class="p-3 bg-slate-900/80 rounded-xl text-xs space-y-1.5 border border-slate-800">
+                        <p><strong class="text-indigo-300">Homogen (Larutan):</strong> Tinta printer cyan/magenta/yellow, pembersih lensa kamera.</p>
+                        <p><strong class="text-indigo-300">Heterogen (Suspensi/Koloid):</strong> Cat semprot (*spray paint* DKV), *thermal compound metalik* (RPL).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 4: SIMULASI PARTIKEL INTERAKTIF -->
+        <div id="tab-simulasi" class="tab-content hidden space-y-6">
+            <div class="glass-card p-6 rounded-2xl space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-white"><i class="fa-solid fa-flask text-cyan-400 mr-2"></i>Lab Simulasi Partikel Zat</h3>
+                        <p class="text-xs text-slate-400">Atur temperatur untuk melihat perubahan perilaku molekul dalam zat padat, cair, dan gas!</p>
+                    </div>
+
+                    <!-- Temperature Control -->
+                    <div class="flex items-center gap-4 bg-slate-900 p-3 rounded-xl border border-slate-800">
+                        <label for="tempRange" class="text-xs font-bold text-slate-300 whitespace-nowrap">Suhu: <span id="tempValue" class="text-cyan-400">-20</span> $^\circ\text{C}$</label>
+                        <input type="range" id="tempRange" min="-50" max="150" value="-20" class="w-36 accent-cyan-400 cursor-pointer" oninput="updateSimulation()">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <!-- Canvas Canvas -->
+                    <div class="md:col-span-2 relative bg-slate-950 rounded-xl border border-slate-800 overflow-hidden h-64 flex items-center justify-center">
+                        <canvas id="particleCanvas" width="500" height="240" class="w-full h-full"></canvas>
+                        <div id="stateBadge" class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-extrabold bg-blue-500/80 text-white shadow">
+                            PADAT (Es / Kristal)
+                        </div>
+                    </div>
+
+                    <!-- Simulation Status Info -->
+                    <div class="space-y-4 bg-slate-900/80 p-5 rounded-xl border border-slate-800">
+                        <h4 class="text-sm font-bold text-cyan-300 border-b border-slate-800 pb-2">Status Mikroskopis:</h4>
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <p><strong>Gaya Tarik Partikel:</strong> <span id="forceText" class="text-emerald-400 font-semibold">Sangat Kuat</span></p>
+                            <p><strong>Jarak Antar Partikel:</strong> <span id="distText" class="text-emerald-400 font-semibold">Sangat Rapat</span></p>
+                            <p><strong>Bentuk & Volume:</strong> <span id="shapeText" class="text-emerald-400 font-semibold">Tetap & Tetap</span></p>
+                        </div>
+                        <div id="simCaseStudy" class="p-3 bg-cyan-950/40 border border-cyan-800/40 rounded-lg text-xs text-cyan-200">
+                            <strong>Analogi Kejuruan:</strong> Pada kondisi padat, seperti struktur silikon chip CPU atau bodi kamera DSLR.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 5: KUIS & EVALUASI INTERAKTIF -->
+        <div id="tab-evaluasi" class="tab-content hidden space-y-8">
+            
+            <!-- MINI GAME: KLASIFIKASI ZAT -->
+            <div id="mini-game" class="glass-card p-6 rounded-2xl space-y-6">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                    <div>
+                        <h3 class="text-xl font-black text-white"><i class="fa-solid fa-gamepad text-pink-400 mr-2"></i>Mini-Game: Tantangan Klasifikasi Zat</h3>
+                        <p class="text-xs text-slate-400">Pilih jenis perubahan zat yang terjadi pada kasus dunia nyata RPL/DKV di bawah ini!</p>
+                    </div>
+                    <span class="text-xs px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full font-bold">Skor Game: <span id="gameScore">0</span>/50</span>
+                </div>
+
+                <div id="gameContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Game cards will be injected by JavaScript -->
+                </div>
+            </div>
+
+            <!-- KUIS FORMATIF HOTS -->
+            <div class="glass-card p-6 rounded-2xl space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h3 class="text-xl font-black text-white"><i class="fa-solid fa-file-pen text-cyan-400 mr-2"></i>Kuis Evaluasi Formatif (HOTS)</h3>
+                    <p class="text-xs text-slate-400">Uji pemahaman Anda mengenai sifat, wujud, dan perubahan zat dalam konteks kejuruan.</p>
+                </div>
+
+                <div id="quizContainer" class="space-y-6">
+                    <!-- Quiz questions injected by JS -->
+                </div>
+
+                <div class="flex justify-end pt-4 border-t border-slate-800">
+                    <button onclick="submitQuiz()" class="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black rounded-xl shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim & Lihat Nilai Kuis
+                    </button>
+                </div>
+
+                <!-- Quiz Score Modal/Card -->
+                <div id="quizResult" class="hidden p-6 bg-slate-900/90 rounded-xl border border-cyan-500/40 text-center space-y-3">
+                    <h4 class="text-2xl font-black text-white">Hasil Kuis Evaluasi</h4>
+                    <p class="text-4xl font-extrabold text-cyan-400" id="finalScore">0 / 100</p>
+                    <p class="text-sm text-slate-300" id="scoreFeedback"></p>
+                </div>
+            </div>
+
+            <!-- PROYEK MINI KRATIF -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card-rpl glass-card p-6 rounded-2xl space-y-3 border-t-4 border-t-cyan-500">
+                    <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider"><i class="fa-solid fa-laptop-code mr-1"></i> TUGAS PROYEK MINI RPL</span>
+                    <h4 class="text-lg font-bold text-white">Simulator Logika State Perubahan Zat</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Buatlah program logika sederhana (menggunakan Python, JavaScript, atau Pseudocode flowchart) yang menerima masukan variabel suhu ($T$) dan jenis zat (misal: Air, Solder Timah), lalu menghasilkan keluaran wujud zat beserta jenis perubahan zatnya.
+                    </p>
+                </div>
+
+                <div class="card-dkv glass-card p-6 rounded-2xl space-y-3 border-t-4 border-t-pink-500">
+                    <span class="text-xs font-bold text-pink-400 uppercase tracking-wider"><i class="fa-solid fa-palette mr-1"></i> TUGAS PROYEK MINI DKV</span>
+                    <h4 class="text-lg font-bold text-white">Infografis Media Cetak & Reaksi Kimia</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Buatlah satu lembar Poster Infografis (A4) menggunakan Canva / Adobe Illustrator yang menjelaskan perbedaan antara perubahan fisika (proses pencampuran cat/tinta) dan perubahan kimia (proses *curing* resin 3D printing / etsa plat) di studio DKV.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 py-8 mt-10">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 mb-1"><i class="fa-solid fa-school"></i></div>
+            <p class="text-sm font-bold text-white">SMK Negeri 1 Karang Baru, Aceh Tamiang</p>
+            <p class="text-xs text-slate-300">Guru Mata Pelajaran Projek IPAS: <strong class="text-cyan-300">Rini Deliana, S.T., M.Pd</strong></p>
+            <p class="text-xs text-slate-400">Modul Pembelajaran Interaktif IPAS SMK · Zat dan Perubahannya</p>
+            <p class="text-[10px] text-slate-500">Dirancang untuk Kurikulum Merdeka, Program Keahlian RPL & DKV</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Tab Switcher
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-cyan-400', 'text-cyan-400', 'bg-slate-800/50');
+                btn.classList.add('border-transparent', 'text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('border-cyan-400', 'text-cyan-400', 'bg-slate-800/50');
+            activeBtn.classList.remove('border-transparent', 'text-slate-400');
+
+            if(tabId === 'tab-simulasi') {
+                initSimulation();
+            }
+        }
+
+        // Filter Context RPL / DKV / All
+        function setFilter(filter) {
+            const btnAll = document.getElementById('btn-filter-all');
+            const btnRpl = document.getElementById('btn-filter-rpl');
+            const btnDkv = document.getElementById('btn-filter-dkv');
+
+            const cardsRpl = document.querySelectorAll('.card-rpl');
+            const cardsDkv = document.querySelectorAll('.card-dkv');
+
+            [btnAll, btnRpl, btnDkv].forEach(b => {
+                b.classList.remove('bg-cyan-500', 'text-white', 'bg-pink-500', 'shadow');
+                b.classList.add('text-slate-400');
+            });
+
+            if(filter === 'all') {
+                btnAll.classList.add('bg-cyan-500', 'text-white', 'shadow');
+                cardsRpl.forEach(c => c.style.display = 'block');
+                cardsDkv.forEach(c => c.style.display = 'block');
+            } else if(filter === 'rpl') {
+                btnRpl.classList.add('bg-cyan-500', 'text-white', 'shadow');
+                cardsRpl.forEach(c => c.style.display = 'block');
+                cardsDkv.forEach(c => c.style.display = 'none');
+            } else if(filter === 'dkv') {
+                btnDkv.classList.add('bg-pink-500', 'text-white', 'shadow');
+                cardsRpl.forEach(c => c.style.display = 'none');
+                cardsDkv.forEach(c => c.style.display = 'block');
+            }
+        }
+
+        // Simulation Canvas Physics
+        let simAnimationId;
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        const numParticles = 40;
+
+        class Particle {
+            constructor(x, y) {
+                this.baseX = x;
+                this.baseY = y;
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.radius = 6;
+            }
+
+            update(temp) {
+                if (temp < 0) {
+                    // Padat: Getaran kecil di tempat
+                    this.x = this.baseX + (Math.random() - 0.5) * (temp + 60) * 0.05;
+                    this.y = this.baseY + (Math.random() - 0.5) * (temp + 60) * 0.05;
+                } else if (temp >= 0 && temp < 100) {
+                    // Cair: Mengalir terbatas
+                    const speed = temp * 0.03;
+                    this.x += this.vx * speed;
+                    this.y += this.vy * speed;
+
+                    if (this.x < 50 || this.x > canvas.width - 50) this.vx *= -1;
+                    if (this.y < 120 || this.y > canvas.height - 20) this.vy *= -1;
+                } else {
+                    // Gas: Bebas acak dan cepat
+                    const speed = temp * 0.08;
+                    this.x += this.vx * speed;
+                    this.y += this.vy * speed;
+
+                    if (this.x < 10 || this.x > canvas.width - 10) this.vx *= -1;
+                    if (this.y < 10 || this.y > canvas.height - 10) this.vy *= -1;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#38bdf8';
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = '#0284c7';
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        function initSimulation() {
+            particles = [];
+            const cols = 8;
+            const rows = 5;
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    particles.push(new Particle(160 + i * 25, 120 + j * 20));
+                }
+            }
+            if (!simAnimationId) {
+                animateSimulation();
+            }
+        }
+
+        function updateSimulation() {
+            const temp = parseInt(document.getElementById('tempRange').value);
+            document.getElementById('tempValue').innerText = temp;
+
+            const badge = document.getElementById('stateBadge');
+            const forceText = document.getElementById('forceText');
+            const distText = document.getElementById('distText');
+            const shapeText = document.getElementById('shapeText');
+            const simCaseStudy = document.getElementById('simCaseStudy');
+
+            if (temp < 0) {
+                badge.className = "absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-extrabold bg-blue-500/80 text-white shadow";
+                badge.innerText = "PADAT (Kristal / Es)";
+                forceText.innerText = "Sangat Kuat";
+                distText.innerText = "Sangat Rapat & Teratur";
+                shapeText.innerText = "Bentuk & Volume Tetap";
+                simCaseStudy.innerHTML = "<strong>Analogi Kejuruan:</strong> Kristal silikon semikonduktor CPU (RPL) atau bodi aluminium kamera DSLR (DKV).";
+            } else if (temp >= 0 && temp < 100) {
+                badge.className = "absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-extrabold bg-cyan-500/80 text-white shadow";
+                badge.innerText = "CAIR (Air / Tinta)";
+                forceText.innerText = "Agak Lemah";
+                distText.innerText = "Renggang & Dapat Mengalir";
+                shapeText.innerText = "Bentuk Ikut Wadah, Volume Tetap";
+                simCaseStudy.innerHTML = "<strong>Analogi Kejuruan:</strong> Liquid cooling radiator CPU (RPL) atau tinta pigmen printer inkjet (DKV).";
+            } else {
+                badge.className = "absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-extrabold bg-pink-500/80 text-white shadow";
+                badge.innerText = "GAS (UAP AIR)";
+                forceText.innerText = "Sangat Lemah / Hampir Tidak Ada";
+                distText.innerText = "Sangat Saling Berjauhan";
+                shapeText.innerText = "Bentuk & Volume Berubah-ubah";
+                simCaseStudy.innerHTML = "<strong>Analogi Kejuruan:</strong> Gas pelarut aerosol saat menyemprotkan cat spray (DKV) atau uap panas exhaust fan server (RPL).";
+            }
+        }
+
+        function animateSimulation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const temp = parseInt(document.getElementById('tempRange').value);
+
+            particles.forEach(p => {
+                p.update(temp);
+                p.draw();
+            });
+
+            simAnimationId = requestAnimationFrame(animateSimulation);
+        }
+
+        // Mini-Game Data & Logic
+        const miniGameData = [
+            {
+                id: 1,
+                title: "Pin RAM Emas Menguning & Berkarat",
+                jurusan: "RPL",
+                description: "Akibat tempat lembab, konektor pin RAM mengalami korosi reaksi dengan $O_2$.",
+                options: ["Perubahan Fisika", "Perubahan Kimia"],
+                correct: "Perubahan Kimia",
+                explanation: "Korosi membentuk senyawa oksida logam baru ($Fe_2O_3$ / Oksida Tembaga)."
+            },
+            {
+                id: 2,
+                title: "Solder Timah Pematrian PCB",
+                jurusan: "RPL",
+                description: "Timah solder dipanaskan $217^\circ\text{C}$ hingga meleleh lalu mengeras lagi.",
+                options: ["Perubahan Fisika", "Perubahan Kimia"],
+                correct: "Perubahan Fisika",
+                explanation: "Merupakan proses pelelehan dan pembekuan biasa (tidak membentuk zat baru)."
+            },
+            {
+                id: 3,
+                title: "Pengerasan UV Resin 3D Print",
+                jurusan: "DKV",
+                description: "Liquid resin disinar UV menjadi cetakan 3D padat.",
+                options: ["Perubahan Fisika", "Perubahan Kimia"],
+                correct: "Perubahan Kimia",
+                explanation: "Terjadi proses fotopolimerisasi membentuk rantai molekul polimer baru."
+            },
+            {
+                id: 4,
+                title: "Pemotongan Kertas Kertas Packaging",
+                jurusan: "DKV",
+                description: "Mesin cutting plotter memotong kertas cetakan mock-up produk.",
+                options: ["Perubahan Fisika", "Perubahan Kimia"],
+                correct: "Perubahan Fisika",
+                explanation: "Hanya merubah ukuran dan bentuk kertas tanpa merubah struktur kimia kertas."
+            },
+            {
+                id: 5,
+                title: "Oksidasi Tinta & Cetakan Memudar",
+                jurusan: "DKV",
+                description: "Poster di luar ruangan memudar warnanya karena sinar UV dan udara.",
+                options: ["Perubahan Fisika", "Perubahan Kimia"],
+                correct: "Perubahan Kimia",
+                explanation: "Fotodegradasi merusak ikatan molekul pigmen warna secara kimiawi."
+            }
+        ];
+
+        let gameScoreValue = 0;
+
+        function loadMiniGame() {
+            const container = document.getElementById('gameContainer');
+            container.innerHTML = '';
+
+            miniGameData.forEach((game, index) => {
+                const card = document.createElement('div');
+                card.className = "p-4 bg-slate-900/80 rounded-xl border border-slate-800 space-y-3";
+                
+                const badgeColor = game.jurusan === 'RPL' ? 'text-cyan-400 bg-cyan-500/20' : 'text-pink-400 bg-pink-500/20';
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-extrabold px-2 py-0.5 rounded ${badgeColor}">[${game.jurusan}] Kasus #${index + 1}</span>
+                    </div>
+                    <h4 class="text-sm font-bold text-white">${game.title}</h4>
+                    <p class="text-xs text-slate-300">${game.description}</p>
+                    <div class="flex gap-2 pt-1" id="game-opts-${game.id}">
+                        <button onclick="checkGameAnswer(${game.id}, 'Perubahan Fisika')" class="flex-1 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs rounded-lg border border-slate-700 transition">Perubahan Fisika</button>
+                        <button onclick="checkGameAnswer(${game.id}, 'Perubahan Kimia')" class="flex-1 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs rounded-lg border border-slate-700 transition">Perubahan Kimia</button>
+                    </div>
+                    <div id="game-feedback-${game.id}" class="hidden text-[11px] p-2 rounded-lg"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkGameAnswer(gameId, answer) {
+            const game = miniGameData.find(g => g.id === gameId);
+            const feedbackEl = document.getElementById(`game-feedback-${gameId}`);
+            const optsEl = document.getElementById(`game-opts-${gameId}`);
+
+            optsEl.classList.add('pointer-events-none', 'opacity-50');
+            feedbackEl.classList.remove('hidden');
+
+            if (answer === game.correct) {
+                gameScoreValue += 10;
+                document.getElementById('gameScore').innerText = gameScoreValue;
+                feedbackEl.className = "text-[11px] p-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> <strong>Benar!</strong> ${game.explanation}`;
+            } else {
+                feedbackEl.className = "text-[11px] p-2 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/30";
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> <strong>Jawaban Kurang Tepat.</strong> Harus Jawab <em>${game.correct}</em>. ${game.explanation}`;
+            }
+        }
+
+        // Quiz Questions Data
+        const quizQuestions = [
+            {
+                q: "1. Seorang siswa RPL mengoleskan Thermal Paste di atas Processor CPU. Alasan utama penggunaan thermal paste ditinjau dari sifat fisiknya adalah...",
+                opts: [
+                    "Thermal paste mengalami reaksi kimia pembakaran untuk mendinginkan CPU.",
+                    "Thermal paste memiliki konduktivitas termal tinggi untuk mengisi celah udara mikroskopis.",
+                    "Thermal paste merubah wujud CPU padat menjadi cairan pendingin.",
+                    "Thermal paste bersifat asam kuat untuk membersihkan debu processor."
+                ],
+                correct: 1,
+                reason: "Thermal paste memanfaatkan sifat fisika daya hantar panas (konduktivitas) yang tinggi tanpa mengubah sifat kimia processor."
+            },
+            {
+                q: "2. Ketika membuat cetakan sablon / etching plat logam zinc pada jurusan DKV, digunakan larutan asam nitrat ($HNO_3$) untuk mengikis permukaan logam tembaga. Peristiwa ini termasuk...",
+                opts: [
+                    "Perubahan Fisika karena hanya mengubah warna logam.",
+                    "Perubahan Kimia karena terjadi reaksi pembentukan zat garam dan gas baru.",
+                    "Perubahan Wujud dari padat menjadi gas sublimasi.",
+                    "Pencampuran Campuran Homogen biasa."
+                ],
+                correct: 1,
+                reason: "Pengikisan asam nitrat pada logam bereaksi secara kimia menghasilkan zat baru ($Cu(NO_3)_2$) dan gas."
+            },
+            {
+                q: "3. Komputer server di laboratorium Software Engineering mengalami kerusakan akibat embun air dari AC menetes ke motherboard dan menimbulkan kerak kehijauan. Senyawa kerak tersebut terjadi karena...",
+                opts: [
+                    "Pembekuan zat cair secara fisika.",
+                    "Penguapan tembaga PCB secara sublimasi.",
+                    "Korosi (Oksidasi) kimia antara tembaga ($Cu$), oksigen ($O_2$), dan air ($H_2O$).",
+                    "Peleburan timah solder karena panas server."
+                ],
+                correct: 2,
+                reason: "Kerak hijau (verdigris) adalah hasil reaksi kimia korosi tembaga akibat paparan air dan oksigen."
+            },
+            {
+                q: "4. Tinta printer inkjet warna Cyan yang berupa larutan pigmen pewarna yang terlarut sempurna dalam air tanpa endapan dikategorikan sebagai...",
+                opts: [
+                    "Unsur Kimia Tunggal",
+                    "Campuran Heterogen (Suspensi)",
+                    "Campuran Homogen (Larutan)",
+                    "Senyawa Murni"
+                ],
+                correct: 2,
+                reason: "Tinta inkjet adalah campuran homogen di mana zat terlarut tersebar merata secara sempurna tanpa endapan."
+            },
+            {
+                q: "5. Mengapa sinar cahaya lampu LED RGB pada monitor laptop BUKAN termasuk materi/zat?",
+                opts: [
+                    "Karena cahaya RGB tidak memiliki massa dan tidak menempati ruang (merupakan energi).",
+                    "Karena cahaya RGB berbentuk cairan cair transparan.",
+                    "Karena cahaya RGB terdiri dari unsur silikon padat.",
+                    "Karena cahaya RGB memiliki titik didih di atas $100^\circ\text{C}$."
+                ],
+                correct: 0,
+                reason: "Zat/Materi wajib memiliki massa dan volume. Cahaya RGB adalah gelombang elektromagnetik (energi), bukan materi."
+            }
+        ];
+
+        function loadQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const qCard = document.createElement('div');
+                qCard.className = "p-5 bg-slate-900/60 rounded-xl border border-slate-800 space-y-3";
+                
+                let optsHtml = '';
+                q.opts.forEach((opt, oIdx) => {
+                    optsHtml += `
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/50 hover:bg-slate-800 rounded-lg cursor-pointer border border-slate-700/50 text-xs text-slate-200 transition">
+                            <input type="radio" name="q_${idx}" value="${oIdx}" class="mt-0.5 accent-cyan-400">
+                            <span>${opt}</span>
+                        </label>
+                    `;
+                });
+
+                qCard.innerHTML = `
+                    <h4 class="text-sm font-bold text-white">${q.q}</h4>
+                    <div class="space-y-2">${optsHtml}</div>
+                    <div id="quiz-explain-${idx}" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                `;
+                container.appendChild(qCard);
+            });
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+
+            quizQuestions.forEach((q, idx) => {
+                const selected = document.querySelector(`input[name="q_${idx}"]:checked`);
+                const explainEl = document.getElementById(`quiz-explain-${idx}`);
+                explainEl.classList.remove('hidden');
+
+                if (selected && parseInt(selected.value) === q.correct) {
+                    correctCount++;
+                    explainEl.className = "text-xs p-3 rounded-lg mt-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                    explainEl.innerHTML = `<i class="fa-solid fa-check-circle mr-1"></i> <strong>Benar!</strong> ${q.reason}`;
+                } else {
+                    explainEl.className = "text-xs p-3 rounded-lg mt-2 bg-rose-500/20 text-rose-300 border border-rose-500/30";
+                    explainEl.innerHTML = `<i class="fa-solid fa-times-circle mr-1"></i> <strong>Salah.</strong> Jawaban benar: <em>${q.opts[q.correct]}</em>. Pembahasan: ${q.reason}`;
+                }
+            });
+
+            const score = (correctCount / quizQuestions.length) * 100;
+            const resultBox = document.getElementById('quizResult');
+            resultBox.classList.remove('hidden');
+            document.getElementById('finalScore').innerText = `${score} / 100`;
+
+            const feedback = document.getElementById('scoreFeedback');
+            if(score >= 80) {
+                feedback.innerHTML = "🎉 <strong class='text-emerald-400'>Luar Biasa!</strong> Anda telah menguasai konsep Zat dan Perubahannya dengan sangat baik!";
+            } else if(score >= 60) {
+                feedback.innerHTML = "👍 <strong class='text-yellow-400'>Cukup Baik!</strong> Pelajari kembali beberapa konsep dasar perubahan zat kejuruan.";
+            } else {
+                feedback.innerHTML = "📚 <strong class='text-rose-400'>Perlu Latihan Lagi!</strong> Silakan baca ulang materi dan coba kuis ini kembali.";
+            }
+
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadMiniGame();
+            loadQuiz();
+        });
+    </script>
+</body>
+</html>
